@@ -1,119 +1,205 @@
-interface Vehicle {
+import java.util.*;
+
+interface Vehicle
+{
     void start();
     void stop();
     void getSpeed();
-    void getFuelType();
+    void fuelType();
 }
 
-interface Maintenance {
-    int HANDLING_CHARGE = 500;
-
+interface Maintenance
+{
+    int charge = 500;
     void performMaintenance();
 }
 
-class Car implements Vehicle, Maintenance {
+class Car implements Vehicle, Maintenance
+{
+    Scanner s;
+    boolean hasStarted, hasStopped;
+    int age, total, maintenance;
 
-    public void start() {
-        System.out.println("Car started.");
+    public void start()
+    {
+        hasStarted = true;
+        if (hasStarted == true)
+        {
+            System.out.println("Car has started");
+        }
+        else
+        {
+            System.out.println("Car was already in motion");
+        }
     }
 
-    public void stop() {
-        System.out.println("Car stopped.");
+    public void stop()
+    {
+        hasStopped = true;
+        if (hasStopped == true)
+        {
+            System.out.println("Car has now stopped");
+        }
+        else
+        {
+            System.out.println("Car was already stopped");
+        }
     }
 
-    public void getSpeed() {
-        System.out.println("Car speed: 120 km/h");
+    public void getSpeed()
+    {
+        s = new Scanner(System.in);
+        System.out.println("Enter the speed of car");
+        int speed = s.nextInt();
+        System.out.println("Speed of car is " + speed);
     }
 
-    public void getFuelType() {
-        System.out.println("Car fuel type: Petrol");
+    public void fuelType()
+    {
+        s = new Scanner(System.in);
+        System.out.println("Enter the type of engine for car (Petrol/CNG/Diesel/EV)");
+        String type = s.next();
+        System.out.println("Type of engine for car is " + type);
     }
 
-    public void performMaintenance() {
-        System.out.println("Car maintenance performed.");
-        System.out.println("Handling charge: Rs. " + HANDLING_CHARGE);
-    }
-}
-
-class Bus implements Vehicle, Maintenance {
-
-    public void start() {
-        System.out.println("Bus started.");
-    }
-
-    public void stop() {
-        System.out.println("Bus stopped.");
-    }
-
-    public void getSpeed() {
-        System.out.println("Bus speed: 80 km/h");
-    }
-
-    public void getFuelType() {
-        System.out.println("Bus fuel type: Diesel");
-    }
-
-    public void performMaintenance() {
-        System.out.println("Bus maintenance performed.");
-        System.out.println("Handling charge: Rs. " + HANDLING_CHARGE);
-    }
-}
-
-class Motorcycle implements Vehicle {
-
-    public void start() {
-        System.out.println("Motorcycle started.");
-    }
-
-    public void stop() {
-        System.out.println("Motorcycle stopped.");
-    }
-
-    public void getSpeed() {
-        System.out.println("Motorcycle speed: 100 km/h");
-    }
-
-    public void getFuelType() {
-        System.out.println("Motorcycle fuel type: Petrol");
+    public void performMaintenance()
+    {
+        s = new Scanner(System.in);
+        System.out.println("Enter the maintenance charge of car");
+        int maintenance = s.nextInt();
+        total = maintenance + charge;
+        System.out.println("Total maintenance of car is " + total);
     }
 }
 
-public class VehicleManagement {
+class Bus implements Vehicle, Maintenance
+{
+    Scanner s;
+    boolean hasStarted, hasStopped;
+    int total, maintenance;
 
-    public static void main(String[] args) {
+    public void start()
+    {
+        hasStarted = true;
+        if (hasStarted == true)
+        {
+            System.out.println("Bus has started");
+        }
+        else
+        {
+            System.out.println("Bus was already in motion");
+        }
+    }
 
-        System.out.println("----- CAR -----");
+    public void stop()
+    {
+        hasStopped = true;
+        if (hasStopped == true)
+        {
+            System.out.println("Bus has now stopped");
+        }
+        else
+        {
+            System.out.println("Bus was already stopped");
+        }
+    }
 
-        Vehicle car = new Car();
-        car.start();
-        car.getSpeed();
-        car.getFuelType();
-        car.stop();
+    public void getSpeed()
+    {
+        s = new Scanner(System.in);
+        System.out.println("Enter the speed of bus");
+        int speed = s.nextInt();
+        System.out.println("Speed of bus is " + speed);
+    }
 
-        Maintenance carMaintenance = new Car();
-        carMaintenance.performMaintenance();
+    public void fuelType()
+    {
+        s = new Scanner(System.in);
+        System.out.println("Enter the type of engine for bus (Petrol/CNG/Diesel/EV)");
+        String type = s.next();
+        System.out.println("Type of engine for bus is " + type);
+    }
 
-        System.out.println();
+    public void performMaintenance()
+    {
+        s = new Scanner(System.in);
+        System.out.println("Enter the maintenance charge of bus");
+        int maintenance = s.nextInt();
+        total = maintenance + charge;
+        System.out.println("Total maintenance of bus is " + total);
+    }
+}
 
-        System.out.println("----- BUS -----");
+class Motorcycle implements Vehicle
+{
+    Scanner s;
+    boolean hasStarted, hasStopped;
 
-        Vehicle bus = new Bus();
-        bus.start();
-        bus.getSpeed();
-        bus.getFuelType();
-        bus.stop();
+    public void start()
+    {
+        hasStarted = true;
+        if (hasStarted == true)
+        {
+            System.out.println("Motorcycle has started");
+        }
+        else
+        {
+            System.out.println("Motorcycle was already in motion");
+        }
+    }
 
-        Maintenance busMaintenance = new Bus();
-        busMaintenance.performMaintenance();
+    public void stop()
+    {
+        hasStopped = true;
+        if (hasStopped == true)
+        {
+            System.out.println("Motorcycle has now stopped");
+        }
+        else
+        {
+            System.out.println("Motorcycle was already stopped");
+        }
+    }
 
-        System.out.println();
+    public void getSpeed()
+    {
+        s = new Scanner(System.in);
+        System.out.println("Enter the speed of motorcycle");
+        int speed = s.nextInt();
+        System.out.println("Speed of motorcycle is " + speed);
+    }
 
-        System.out.println("----- MOTORCYCLE -----");
+    public void fuelType()
+    {
+        s = new Scanner(System.in);
+        System.out.println("Enter the type of engine for motorcycle (Petrol/CNG/Diesel/EV)");
+        String type = s.next();
+        System.out.println("Type of engine for motorcycle is " + type);
+    }
+}
 
-        Vehicle motorcycle = new Motorcycle();
-        motorcycle.start();
-        motorcycle.getSpeed();
-        motorcycle.getFuelType();
-        motorcycle.stop();
+class Test
+{
+    public static void main(String[] args)
+    {
+        Car c = new Car();
+        c.start();
+        c.stop();
+        c.getSpeed();
+        c.fuelType();
+        c.performMaintenance();
+
+        Bus b = new Bus();
+        b.start();
+        b.stop();
+        b.getSpeed();
+        b.fuelType();
+        b.performMaintenance();
+
+        Motorcycle m = new Motorcycle();
+        m.start();
+        m.stop();
+        m.getSpeed();
+        m.fuelType();
     }
 }
