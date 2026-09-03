@@ -178,7 +178,7 @@ class Motorcycle implements Vehicle
     }
 }
 
-class Test
+class VehicleManagement
 {
     public static void main(String[] args)
     {
